@@ -40,6 +40,10 @@ io.on('connection', socket => {
 		io.emit('pollMessage', msg);
 	});
 
+	socket.on('controlMessage', msg => {
+		console.log("controlMessage :"+JSON.stringify(msg));
+		io.emit('controlMessage', msg);
+	});
 
 	socket.on('disconnect', function(msg){
 		console.log('A user disconnect.'+socket.id , msg)
